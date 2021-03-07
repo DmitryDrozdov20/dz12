@@ -1,5 +1,6 @@
 version: ‘3’
 services:
+
   db:
     image: mysql:5.7
     container_name: db
@@ -13,13 +14,14 @@ services:
     volumes:
       – dbdata:/var/lib/mysql
 
-    services:
   build:
-      context: ./package
+    build:
+      context: ./build
       dockerfile: Dockerfile
     volumes: 
       - appdata:/home/dz12/App42PaaS-Java-MySQL-Sample/target/
       - proddata:/home/dz12/App42PaaS-Java-MySQL-Sample/WebContent/
+
   prod:
     build:
       context: ./prod
