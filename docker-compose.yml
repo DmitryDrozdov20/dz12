@@ -8,16 +8,10 @@ services:
       MYSQL_DATABASE: paasdb
       MYSQL_USER: paasdb_user
       MYSQL_PASSWORD: pass123
-    healthcheck:
-      test: mysql --user=$$MYSQL_USER --password=$$MYSQL_PASSWORD -e 'SHOW DATABASES;'
-      timeout: 5s
-      retries: 5
     ports:
-      – "6033:3306"
+      - "3306:3306"
     volumes:
-      – "dbdata:/var/lib/mysql"
-    networks:
-      - network 
+      - "dbdata:/var/lib/mysql" 
 
   build:
     build:
