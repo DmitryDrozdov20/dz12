@@ -1,8 +1,8 @@
 version: '3'
 services:
-  db:
+  database:
     image: mysql:5.7
-    container_name: db
+    container_name: database
     environment:
       MYSQL_ROOT_PASSWORD: Pa$$w0rd
       MYSQL_DATABASE: paasdb
