@@ -13,9 +13,9 @@ services:
       timeout: 5s
       retries: 5
     ports:
-      – “6033:3306”
+      – "6033:3306"
     volumes:
-      – dbdata:/var/lib/mysql
+      – "dbdata:/var/lib/mysql"
     networks:
       - network 
 
