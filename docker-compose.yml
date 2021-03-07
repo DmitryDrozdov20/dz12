@@ -1,7 +1,8 @@
 version: '3'
 services:
-  database:
+  db:
     image: mysql:5.7
+    container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: Pa$$w0rd
       MYSQL_DATABASE: paasdb
@@ -11,10 +12,12 @@ services:
       test: mysql --user=$$MYSQL_USER --password=$$MYSQL_PASSWORD -e 'SHOW DATABASES;'
       timeout: 5s
       retries: 5
+    ports:
+      – “6033:3306”
     volumes:
       – dbdata:/var/lib/mysql
-    volumes:
-      dbdata: 
+    networks:
+      - network 
 
   build:
     build:
